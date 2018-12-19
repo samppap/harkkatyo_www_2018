@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each porter in porter_list
+      li
+        <div class="collection">
+           a(href=porter.url class="collection-item") #{porter.first_name +" "+ porter.family_name}
+        </div>
+    else
+      li Ei kenttämestareita.

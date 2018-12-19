@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='rink') Kenttä:
+      select#rink.form-control(type='select', placeholder='Valitse kenttä' name='rink' required='true' )
+        for rink in rinks
+
+            option(value=rink._id) #{rink.location}
+    div.form-group
+      label(for='day') Päivä:
+      input#day.form-control(type='number' placeholder='01' name='day' required='true' value=(undefined===reservation ? '' : reservation.day))
+
+    div.form-group
+      label(for='month') Kuukausi:
+      input#month.form-control(type='number' placeholder='01' name='month' value=(undefined===reservation ? '' : reservation.month))
+
+    div.form-group
+      label(for='year') Vuosi:
+      input#year.form-control(type='number' placeholder='2018' name='year' value=(undefined===reservation ? '' : reservation.year))
+
+    div.form-group
+      label(for='time_start') Alkamisaika:
+      input#time_start.form-control(type='text' placeholder='13:00' name='time_start' value=(undefined===reservation ? '' : reservation.time_start))
+
+    div.form-group
+      label(for='time_end') Loppumisaika:
+      input#time_end.form-control(type='text' placeholder='14:00' name='time_end' value=(undefined===reservation ? '' : reservation.time_end))
+
+    div.form-group
+      label(for='name') Varaajan nimi:
+      input#name.form-control(type='text' placeholder='Jaska Virtanen' name='name' value=(undefined===reservation ? '' : reservation.name))
+
+
+
+    button.btn.btn-primary(type='submit') Tee varaus
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

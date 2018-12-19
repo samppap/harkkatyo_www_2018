@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 #{location} #{rink.location}
+
+  p #[strong Vahtimestari: ]
+
+  <div class="collection">
+     a(href=rink.porter.url class="collection-item") #{rink.porter.first_name + " " + rink.porter.family_name}
+  </div>
+
+  div(style='margin-left:20px;margin-top:20px')
+    h4 Varaukset
+
+    ul
+      each reservation in reservations
+
+
+        <div class="collection">
+           a(href=reservation.url class="collection-item") #{reservation.day+"."+reservation.month+"."+reservation.year+" "+reservation.time_start+"-"+reservation.time_end}
+        </div>
+
+      else
+        li Ei yhtään varausta.

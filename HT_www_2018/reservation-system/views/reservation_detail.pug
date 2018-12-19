@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+
+  hr
+  p #[strong Kenttä: ]
+    a #{reservation.rink.location}
+  hr
+  p #[strong Ajankohta: ]
+    a #{reservation.day+"."+reservation.month+"."+reservation.year+" "+reservation.time_start+"-"+reservation.time_end}
+  hr
+  p #[strong Varaaja: ]
+    a #{reservation.name}
+  hr
+  p
+    a(href=reservation.url+'/delete') Poista

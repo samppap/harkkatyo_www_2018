@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each rink in rink_list
+
+
+      <div class="collection">
+         a(href=rink.url class="collection-item") #{rink.location}
+      </div>
+
+    else
+      li Ei yhtään kenttää.

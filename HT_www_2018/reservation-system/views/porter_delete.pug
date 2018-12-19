@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 #{title}: #{porter.name}
+  p= porter.id
+
+  if porter_rinks.length
+
+    p #[strong Poista kentät ennen kuin voit poistaa vahtimestarin.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Kentät
+
+      dl
+      each rink in porter_rinks
+
+          a(href=rink.url) #{rink.location}
+
+  else
+    p Haluatko varmasti poistaa vahtimestarin?
+
+    form(method='POST' action='')
+      div.form-group
+        input#porterid.form-control(type='hidden',name='porterid', required='true', value=porter._id )
+
+      button.btn.btn-primary(type='submit') Delete

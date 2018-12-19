@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #{Varaus}:  #{reservation.rink.location +" "+ reservation.day+"."+reservation.month+"."+reservation.year+" "+reservation.time_start+"-"+reservation.time_end}
+
+
+
+  p Haluatko varmasti poistaa varauksen?
+
+  form(method='POST' action='')
+    div.form-group
+      input#reservationid.form-control(type='hidden',name='reservationid', required='true', value=reservation._id )
+
+    button.btn.btn-primary(type='submit') Poista

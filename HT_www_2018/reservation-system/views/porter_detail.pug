@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+  h1 Kenttämestari
+  hr
+  p Nimi: #{porter.first_name + " " + porter.family_name}
+  hr
+  p ID: #{porter.id}
+  hr
+  p Puhelinnumero: #{porter.phone}
+  hr
+
+  div(style='margin-left:20px;margin-top:20px')

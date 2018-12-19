@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each reservation in reservation_list
+
+
+      <div class="collection">
+         a(href=reservation.url class="collection-item") #{reservation.rink.location +" "+ reservation.day+"."+reservation.month+"."+reservation.year+" "+reservation.time_start+"-"+reservation.time_end}
+      </div>
+
+    else
+      li Ei yhtään varausta.

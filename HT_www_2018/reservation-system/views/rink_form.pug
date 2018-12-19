@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='location') Sijainti:
+      input#location.form-control(type='text', placeholder='Sijanti' name='location' required='true' value=(undefined===rink ? '' : rink.location) )
+    div.form-group
+      label(for='porter') Kenttämestari:
+      select#porter.form-control(type='select', placeholder='Valitse kenttämestari' name='porter' required='true' )
+        for porter in porters
+          if rink
+            option(value=porter._id selected=(porter._id.toString()==rink.porter ? 'selected' : false) ) #{porter.first_name + " " + porter.family_name}
+          else
+            option(value=porter._id) #{porter.first_name + " " + porter.family_name}
+    button.btn.btn-primary(type='submit') Lisää
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

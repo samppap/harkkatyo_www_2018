@@ -1,0 +1,21 @@
+extends layout
+
+
+block content
+  h1= title
+  p Tervetuloa jääkiekkokenttien varausjärjestelmään! Täällä voit varata Lappeenrannan seudun jääkiekkokenttiä.
+
+  h1 Kenttien ja varauksien määrä:
+
+  if error
+    p Error getting dynamic content.
+  else
+    p Näet kenttien ja varauksien määrän alta.
+
+
+
+  <div class="collection">
+    <a href="/catalog/rinks" class="collection-item"><span class="new badge" data-badge-caption="kpl">!{data.rink_count}</span>Kentät:</a>
+    <a href="/catalog/reservations" class="collection-item"><span class="new badge" data-badge-caption="kpl">!{data.reservation_count}</span>Varaukset:</a>
+
+  </div>

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  hr
+  p #[strong Ajankohta: ]
+    a #{reservation.day+"."+reservation.month+"."+reservation.year+" "+reservation.time_start+"-"+reservation.time_end}
+  hr
+  p #[strong Varaaja: ]
+    a #{reservation.name}
+  hr
+
+
+  p Haluatko varmasti poistaa tämän varauksen?
+
+  form(method='POST' action='')
+    div.form-group
+      input#reservationid.form-control(type='hidden',name='reservationid', required='true', value=reservation._id )
+
+    button.btn.btn-primary(type='submit') Poista

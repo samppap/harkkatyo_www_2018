@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') Etunimi:
+      input#first_name.form-control(type='text' placeholder='Etunimi (Jaakko)' name='first_name' required='true' value=(undefined===porter ? '' : porter.first_name) )
+      label(for='family_name') Sukunimi:
+      input#family_name.form-control(type='text' placeholder='Sukunimi (Virtanen)' name='family_name' required='true' value=(undefined===porter ? '' : porter.family_name))
+    div.form-group
+      label(for='phone') Puhelinnumero:
+      input#did.form-control(type='text' placeholder='Puhelinnumero (0512345678)' name='phone' value=(undefined===porter ? '' : porter.phone) )
+    button.btn.btn-primary(type='submit') Lisää
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
